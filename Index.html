@@ -1,12 +1,50 @@
-<DOCTYPE html>
-<html>
-  <head>
-    <title>CRUD Operation</title>
-  </head>
-  <body>
-  <h1>CRUD Operation</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operations</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Management</h1>
+    
+    <div id="form-container">
+        <input type="text" id="name" placeholder="Name">
+        <input type="number" id="age" placeholder="Age">
+        <button onclick="addUser()">Add User</button>
+        <input type="hidden" id="editIndex">
+    </div>
 
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- User rows will be added here -->
+        </tbody>
+    </table>
 
-<input type="text" placeholder="hell">
-  </body>
-  <html/>
+    <script src="index.js"></script>
+</body>
+</html>

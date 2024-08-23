@@ -26,17 +26,24 @@
     <h1>User Management</h1>
     
     <div id="form-container">
-        <input type="text" id="name" placeholder="Name">
-        <input type="number" id="age" placeholder="Age">
-        <button onclick="addUser()">Add User</button>
+        <input type="text" id="First Name" placeholder="First Name" required>
+        <input type="text" id="Last Name" placeholder="Last Name" required>
+        <br>
+        <input type="number" id="Mobile No." placeholder="Phone Number" required>
+        <input type="email" id="Email Id" placeholder="Email Id" required>
+        <br>
+        <button onclick="addUser()">Add User</button> &nbsp; <span id="count"></span>
         <input type="hidden" id="editIndex">
     </div>
+    <br>
 
     <table id="userTable">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Age</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Mobile No.</th>
+                <th>Email Id</th>
                 <th>Actions</th>
             </tr>
         </thead>

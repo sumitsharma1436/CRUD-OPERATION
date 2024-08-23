@@ -1,6 +1,5 @@
 let users = [];
 let editIndex = -1;
-
 function renderTable() {
     // print the Output
     const tbody = document.querySelector('#userTable tbody');
@@ -11,8 +10,10 @@ function renderTable() {
         const tr = document.createElement('tr');
         // one by one create row. td is use html tag 
         tr.innerHTML = `
-            <td>${user.name}</td>
-            <td>${user.age}</td>
+            <td>${user.first}</td>
+            <td>${user.last}</td>
+            <td>${user.num}</td>
+            <td>${user.email}</td>
             <td>
                 <button onclick="editUser(${index})">Edit</button>
                 <button onclick="deleteUser(${index})">Delete</button>
@@ -24,37 +25,51 @@ function renderTable() {
 }
 // create the details 
 function addUser() {
-    const name = document.getElementById('name').value;
-    const age = document.getElementById('age').value;
-
-    if (editIndex >= 0) {
+    const first = document.getElementById('First Name').value;
+    const last = document.getElementById('Last Name').value;
+    const num = document.getElementById('Mobile No.').value;
+    const email = document.getElementById('Email Id').value;
+    if (editIndex >= 0 ) {
         // Update user
-        users[editIndex] = { name, age };
+        users[editIndex] = { first, last,num,email };
         editIndex = -1;
     } else {
         // Add new user
-        users.push({ name, age });
+        users.push({ first, last,num,email });
+        document.getElementById("count").innerText=users.length
     }
 
     // Clear input fields
-    document.getElementById('name').value = '';
-    document.getElementById('age').value = '';
+     document.getElementById('First Name').value='';
+     document.getElementById('Last Name').value='';
+     document.getElementById('Mobile No.').value='';
+    document.getElementById('Email Id').value='';
 
     // Render table
     renderTable();
 }
 
 function editUser(index) {
-    document.getElementById('name').value = users[index].name;
-    document.getElementById('age').value = users[index].age;
+    // console.log(users[index])
+    // input box fill all data and user i change 
+    document.getElementById('First Name').value=users[index].first
+     document.getElementById('Last Name').value=users[index].last
+     document.getElementById('Mobile No.').value=users[index].num
+    document.getElementById('Email Id').value=users[index].email
     document.getElementById('editIndex').value = index;
+    // editIndex is 0
     editIndex = index;
+    // console.log(editIndex)
 }
 
 function deleteUser(index) {
     // using splice function 
+   let con= confirm("Are you sure this row is delete")
+    if(con){
     users.splice(index, 1);
+    document.getElementById("count").innerText=''
     renderTable();
+    }
 }
 
 // Initial render

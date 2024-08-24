@@ -35,8 +35,13 @@ function addUser() {
         editIndex = -1;
     } else {
         // Add new user
+        if(first.length>0 && last.length>0 && num.length>0 && email.length>0){
         users.push({ first, last,num,email });
         document.getElementById("count").innerText=users.length
+        document.getElementById("error").innerText=""
+        }else{
+        document.getElementById("error").innerText="Please fill all input box";
+        }
     }
 
     // Clear input fields
